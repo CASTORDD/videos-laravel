@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Videos
+Route::get('/crear-video', array(
+	'as' => 'createVideo',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@createVideo'
+));
+Route::post('/guardar-video', array(
+	'as' => 'saveVideo',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@saveVideo'
+));
