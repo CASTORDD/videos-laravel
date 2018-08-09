@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
+
+use App\User;
+use App\Video;
+use App\Comments;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +31,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $videos = Video::orderBy('id', 'desc')->paginate(5);
+        return view('home', array(
+            'videos' => $videos
+        ));
     }
 }

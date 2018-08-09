@@ -18,6 +18,41 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            @if(session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+            <ul id="video__list">
+            @foreach($videos as $video)
+                <li class="video__item col-md-4 pull-left">
+                    <!-- Imagen -->                      
+                    <div class="vodeo-image-thumb">
+                        <div class="col-md-6 col-md-offset-3">
+                            <img src="{{ url('/miniatura/'.$video->image) }}"/>
+                        </div>
+                    </div>
+
+                    @if(Storage::disk('images')->has('$video->image'))
+                        <div class="vodeo-image-thumb">
+                            <div class="col-md-6 col-md-offset">
+                                <img src="{{ url('/miniatura/'.$video->image) }}"/>
+                            </div>
+                        </div>                        
+                    @endif
+                    
+                    <div class="data">
+                        <h4>{{ $video->title }}</h4>
+                        <img src="">
+                    </div>
+                    <!-- botones -->
+                </li>
+            @endforeach 
+            </ul>
+            {{ $videos->links() }}
+        </div>
+        
     </div>
 </div>
 @endsection
