@@ -22,5 +22,17 @@ class VideoController extends Controller
     		'description' => 'required',
     		'video' => 'mimes:mp4'
     	]);
+
+    	$video = new Video();
+    	$user = \Auth::user();
+    	$video->user_id = $user->id;
+    	$video->title = $request->input('title');
+    	$video->description = $request->input('description');
+
+    	$video->save();
+
+    	return redirect()->route('home')->with(array(
+    		'message' => 'El video se ha guardado correctamente'
+    	));
     }
 }
