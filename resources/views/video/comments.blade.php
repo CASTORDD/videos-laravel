@@ -31,8 +31,40 @@
 					</p>
 					<div class="card-body">
 						{{ $comment->body }}
+						
+						@if(Auth::check() && (Auth::user()->id == $comment->user->id || Auth::user()->id == $video->user()->id))
+							<div class="float-right">
+								<a href="#commentModal{{$comment->id}}" role="button" data-toggle="modal" class="btn-sm btn-danger">Eliminar</a>	
+							</div>
+							
+
+							<!-- Modal -->
+							<div class="modal fade" id="commentModal{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro?</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <span class="font-weight-bold">¿Deseas borrar el comentario?</span>
+							        <p>{{ $comment->body }}</p>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+							        <a href="{{ url('/delete-comment/'.$comment->id) }}" type="button" class="btn btn-danger">Eliminar</a>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+						@endif
+
 					</div>
+
 				</div>
+				
 			</div>
 		@endforeach
 	</div>
