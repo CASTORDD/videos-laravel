@@ -1,0 +1,26 @@
+body {}
+
+.card-body { 
+}
+.video__image__mask {
+	width: 150px;
+	height: 100px;
+	overflow: hidden;
+}
+.video-image-thumb {
+	padding: 0;
+}
+.video__image__mask img {
+	width: 105%;
+}
+
+.data a {
+	color:#333;
+	font-weight: bold;
+}
+.panel__buttons {
+	margin: 20px 0 0 0;
+}
+#video__player {
+	width: 100%;
+}

@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css')}}">
 </head>
 <body>
     <div id="app">
@@ -87,6 +88,11 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer>
+            <div class="container">
+                Curso de Laravel 5    
+            </div>            
+        </footer>
     </div>
 </body>
 </html>

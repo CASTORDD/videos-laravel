@@ -30,7 +30,21 @@ Route::post('/guardar-video', array(
 	'middleware' => 'auth',
 	'uses' => 'VideoController@saveVideo'
 ));
-Route::get('miniatura/{filename}', array(
+Route::get('/miniatura/{filename}', array(
 	'as' => 'imageVideo',
 	'uses' => 'VideoController@getImage'
+));
+Route::get('/video-file/{filename}', array(
+	'as' => 'fileVideo',
+	'uses' => 'videoController@getVideo'
+));
+Route::get('/video/{video_id}', array(
+	'as' => 'detailVideo',
+	'uses' => 'VideoController@getVideoDetail'
+));
+
+Route::post('/comment', array(
+	'as' => 'comment',
+	'middleware' => 'auth',
+	'uses' => 'CommentController@store'
 ));
