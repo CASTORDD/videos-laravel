@@ -20,11 +20,9 @@
 					<h3 class="card-title">{{ $video->title }}</h3>
 					{{ $video->description }}
 				</div>
-				<div class="card-footer text-muted">
-					<!-- Comentarios -->
-					@include('video.comments')    
-			  	</div>
 			</div>
+			<!-- Comentarios -->
+			@include('video.comments')
 		</div>
 	</div>
 </div>

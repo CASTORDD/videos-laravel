@@ -9,7 +9,7 @@ class Video extends Model
     protected $table='videos';
 
     public function comments(){
-    	return $this->hasMany('App\Comment');
+    	return $this->hasMany('App\Comment')->orderBy('id','desc');
     }
 
     public function user(){

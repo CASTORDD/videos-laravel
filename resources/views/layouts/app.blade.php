@@ -90,7 +90,8 @@
         </main>
         <footer>
             <div class="container">
-                Curso de Laravel 5    
+                Curso de Laravel 5 
+                <hr>   
             </div>            
         </footer>
     </div>
