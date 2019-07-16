@@ -36,17 +36,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="nav-link" href="{{ url('/home')}}">Inicio</a></li>
+                        <li><a class="nav-link" href="{{ url('/')}}">Inicio</a></li>
                     </ul>
 
-                    <form class="form-inline" role="search" action="">
+                    <form class="form-inline" role="search" action="{{ url('/buscar/') }}">
                         <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" placeholder="¿Que quieres ver?">
+                            <input type="text" class="form-control" name="search" placeholder="¿Que quieres ver?">
                           </div>
                         <button type="submit" class="btn btn-defaul mb-2">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

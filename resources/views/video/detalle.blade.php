@@ -13,7 +13,7 @@
 			<!-- Descripción -->
 			<div class="card video__data">
 				<p class="card-header">
-					Publicado por <strong>{{ $video->user->name.' '.$video->user->surname}} </strong> 
+					Publicado por <strong><a href="{{ route('channel', ['user_id' => $video->user->id]) }}">{{ $video->user->name.' '.$video->user->surname }}</a></strong> 
 					{{ \FormatTime::LongTimeFilter($video->created_at)}}
 				</p>
 				<div class="card-body">

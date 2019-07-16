@@ -9,6 +9,7 @@ body {}
 }
 .video-image-thumb {
 	padding: 0;
+	margin: 0 0 5px 0;
 }
 .video__image__mask img {
 	width: 105%;

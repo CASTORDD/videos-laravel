@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', [
+	'as' => 'home',
+	'uses' => 'HomeController@index'
+]);
 
 // Videos
 Route::get('/crear-video', array(
@@ -42,7 +45,34 @@ Route::get('/video/{video_id}', array(
 	'as' => 'detailVideo',
 	'uses' => 'VideoController@getVideoDetail'
 ));
+Route::get('/edit-video/{video_id}', array(
+	'as' => 'editVideo',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@edit'
+));
+Route::get('/delete-video/{video_id}', array(
+	'as' => 'deleteVideo',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@delete'
+));
+Route::post('/update-video/{video_id}', array(
+	'as' => 'updateVideo',
+	'middleware' => 'auth',
+	'uses' => 'VideoController@update'
+));
+Route::get('/buscar/{search?}/{filter?}', [
+	'as' => 'searchVideo',
+	'uses' => 'VideoController@search'
+]);
 
+// Usuarios
+
+Route::get('/canal/{user_id}', [
+	'as' => 'channel',
+	'uses' => 'UserController@channel'
+]);
+
+// Comments
 Route::post('/comment', array(
 	'as' => 'comment',
 	'middleware' => 'auth',
